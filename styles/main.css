@@ -1,0 +1,35 @@
+/* ===== MAIN STYLESHEET ===== */
+/* Imports all component styles */
+
+/* Reset & Base */
+@import 'layout/reset.css';
+
+/* Variables & Theming */
+@import 'themes/light.css';
+@import 'themes/dark.css';
+
+/* Layout */
+@import 'layout/grid.css';
+@import 'layout/spacing.css';
+@import 'layout/typography.css';
+
+/* Utilities */
+@import 'utilities/buttons.css';
+@import 'utilities/cards.css';
+@import 'utilities/forms.css';
+
+/* Components */
+@import 'components/header.css';
+@import 'components/hero.css';
+@import 'components/categories.css';
+@import 'components/job-grid.css';
+@import 'components/dashboard.css';
+@import 'components/profile.css';
+@import 'components/calculator.css';
+@import 'components/agreement.css';
+@import 'components/community.css';
+@import 'components/footer.css';
+@import 'components/modals.css';
+
+/* Responsive */
+@import 'layout/responsive.css';

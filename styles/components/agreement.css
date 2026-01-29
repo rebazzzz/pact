@@ -1,0 +1,101 @@
+/* ===== AGREEMENT GENERATOR ===== */
+.agreement-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--spacing-2xl);
+    margin-top: var(--spacing-xl);
+}
+
+.agreement-preview {
+    background-color: var(--color-bg);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.agreement-header {
+    padding: var(--spacing-xl);
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-bg-light);
+}
+
+.agreement-header h3 {
+    margin: 0;
+    color: var(--color-text);
+}
+
+.agreement-status {
+    padding: var(--spacing-xs) var(--spacing-md);
+    background-color: #FFF3CD;
+    color: #856404;
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+}
+
+.agreement-content {
+    padding: var(--spacing-xl);
+    min-height: 400px;
+    max-height: 500px;
+    overflow-y: auto;
+    font-family: 'Courier New', monospace;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    background-color: var(--color-bg-light);
+}
+
+/* Agreement controls */
+.agreement-controls {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2xl);
+}
+
+.control-group h4 {
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-text);
+}
+
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    cursor: pointer;
+    color: var(--color-text);
+    padding: var(--spacing-sm);
+    background-color: var(--color-bg-light);
+    border-radius: var(--radius-md);
+    border: 1px solid transparent;
+    transition: all var(--transition-fast);
+}
+
+.checkbox-group label:hover {
+    border-color: var(--color-primary);
+    background-color: rgba(46, 139, 87, 0.05);
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--color-primary);
+}
+
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.action-buttons .btn {
+    width: 100%;
+}

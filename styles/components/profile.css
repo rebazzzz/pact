@@ -1,0 +1,199 @@
+/* ===== PROFILE SECTION ===== */
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--spacing-3xl);
+    padding-bottom: var(--spacing-3xl);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.profile-info {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-2xl);
+}
+
+.profile-avatar-large {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    border-radius: var(--radius-round);
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
+}
+
+.verified-badge {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-round);
+    background-color: var(--color-success);
+    color: var(--color-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-sm);
+    border: 3px solid var(--color-bg);
+}
+
+.profile-details h2 {
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-text);
+}
+
+.profile-title {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-lg);
+}
+
+.profile-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+}
+
+.profile-meta {
+    display: flex;
+    gap: var(--spacing-xl);
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    color: var(--color-text-light);
+    font-size: var(--font-size-sm);
+}
+
+.meta-item i {
+    color: var(--color-primary);
+}
+
+.profile-actions {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+/* Skills section */
+.skills-section {
+    background-color: var(--color-bg-light);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-2xl);
+}
+
+.skills-section h3 {
+    margin-bottom: var(--spacing-xl);
+    color: var(--color-text);
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.skill-item {
+    background-color: var(--color-bg);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+    border: 1px solid var(--color-border);
+    position: relative;
+}
+
+.skill-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.skill-name {
+    font-weight: 600;
+    color: var(--color-text);
+    font-size: var(--font-size-lg);
+}
+
+.skill-level {
+    font-size: var(--font-size-xs);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.skill-level.beginner {
+    background-color: rgba(52, 152, 219, 0.1);
+    color: var(--color-info);
+}
+
+.skill-level.intermediate {
+    background-color: rgba(46, 139, 87, 0.1);
+    color: var(--color-success);
+}
+
+.skill-level.expert {
+    background-color: rgba(155, 89, 182, 0.1);
+    color: #9B59B6;
+}
+
+.endorsement-count {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    color: var(--color-text-light);
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.endorsement-count i {
+    color: var(--color-primary);
+}
+
+.endorsers {
+    display: flex;
+    align-items: center;
+}
+
+.endorser-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: var(--radius-round);
+    background-color: var(--color-border);
+    color: var(--color-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    margin-right: -8px;
+    border: 2px solid var(--color-bg);
+}
+
+.endorser-avatar:first-child {
+    z-index: 3;
+}
+
+.endorser-avatar:nth-child(2) {
+    z-index: 2;
+}
+
+.endorser-avatar:nth-child(3) {
+    z-index: 1;
+}
+
+.more-endorsers {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-light);
+    margin-left: var(--spacing-sm);
+}

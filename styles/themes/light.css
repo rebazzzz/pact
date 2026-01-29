@@ -1,0 +1,7 @@
+/* ===== LIGHT THEME (Default) ===== */
+/* This file is intentionally minimal since light theme is default in reset.css */
+/* You can override specific light theme variables here if needed */
+
+body.light-mode {
+    /* Light theme is default, so we just ensure the classes exist */
+}
