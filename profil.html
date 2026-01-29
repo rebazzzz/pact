@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PACT | Profil</title>
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="styles/main.css">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤝</text></svg>">
+</head>
+<body>
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <!-- Navbar content will be dynamically generated -->
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Profile Section -->
+        <section class="profile" id="profile">
+            <div class="container">
+                <div class="profile-header">
+                    <div class="profile-info">
+                        <div class="profile-avatar-large">
+                            <span>A</span>
+                            <div class="verified-badge">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                        </div>
+                        <div class="profile-details">
+                            <h2>Anders Svensson</h2>
+                            <p class="profile-title">Frontend-utvecklare & DIY-entusiast</p>
+
+                            <div class="profile-badges">
+                                <span class="badge badge-success">
+                                    <i class="fas fa-check-circle"></i> BankID-verifierad
+                                </span>
+                                <span class="badge badge-warning">
+                                    <i class="fas fa-star"></i> Toppbetyg
+                                </span>
+                                <span class="badge badge-info">
+                                    <i class="fas fa-bolt"></i> Snabb respons
+                                </span>
+                            </div>
+
+                            <div class="profile-meta">
+                                <div class="meta-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Stockholm</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-user-clock"></i>
+                                    <span>Medlem sedan 2023</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="profile-actions">
+                        <button class="btn btn-outline" id="editProfileBtn">
+                            <i class="fas fa-edit"></i> Redigera
+                        </button>
+                        <button class="btn btn-primary" id="viewStatsBtn">
+                            <i class="fas fa-chart-line"></i> Statistik
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Skills Section -->
+                <div class="skills-section">
+                    <h3>Kompetenser & Rekommendationer</h3>
+                    <div class="skills-grid" id="skillsGrid">
+                        <!-- Skills loaded by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dashboard -->
+        <section class="dashboard" id="dashboard">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Ditt Dashboard</h2>
+                    <div class="dashboard-period">
+                        <span>Denna vecka</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <!-- Stats Cards -->
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-value" id="jobsCompleted">3</div>
+                            <div class="stat-label">Uppdrag</div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-money-bill-wave"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-value" id="totalEarnings">2,150 kr</div>
+                            <div class="stat-label">Intäkter</div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-value" id="averageRating">4.8</div>
+                            <div class="stat-label">Betyg</div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-value" id="hoursWorked">12h</div>
+                            <div class="stat-label">Arbetad tid</div>
+                        </div>
+                    </div>
+
+                    <!-- Calendar Widget -->
+                    <div class="dashboard-widget calendar-widget">
+                        <div class="widget-header">
+                            <h3>Kalender</h3>
+                            <button class="btn-icon" id="addToCalendar">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                        <div class="mini-calendar" id="miniCalendar">
+                            <!-- Calendar loaded by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Availability Widget -->
+                    <div class="dashboard-widget availability-widget">
+                        <div class="widget-header">
+                            <h3>Tillgänglighet</h3>
+                            <label class="switch">
+                                <input type="checkbox" id="availabilityToggle" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="availability-slots" id="availabilitySlots">
+                            <!-- Availability slots loaded by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Referral Widget -->
+                    <div class="dashboard-widget referral-widget">
+                        <div class="widget-header">
+                            <h3>Bjud in vänner</h3>
+                            <span class="badge">+100 kr</span>
+                        </div>
+                        <div class="referral-code" id="referralCode">
+                            PACT-FRIEND
+                        </div>
+                        <button class="btn btn-outline btn-small" id="copyReferralCode">
+                            <i class="far fa-copy"></i> Kopiera kod
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <!-- Footer content will be dynamically generated -->
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+
+    <!-- JavaScript Files -->
+    <script type="module" src="scripts/app.js"></script>
+</body>
+</html>

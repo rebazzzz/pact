@@ -4,6 +4,8 @@
  */
 
 import { initTheme } from './ui/theme.js';
+import { initNavbar } from './ui/navbar.js';
+import { initFooter } from './ui/footer.js';
 import { initAuth } from './modules/auth.js';
 import { initJobs } from './modules/jobs.js';
 import { initProfile } from './modules/profile.js';
@@ -37,16 +39,18 @@ const PACT = {
         // Load saved state
         this.loadState();
         
-        // Initialize modules
-        initTheme();
-        initAuth(this.state.user);
-        initJobs(this.state);
-        initProfile(this.state);
-        initCalculator();
-        initCalendar();
-        initMatching(this.state);
-        initModals();
-        initNotifications();
+    // Initialize modules
+    initTheme();
+    initNavbar(this.state);
+    initFooter(this.state);
+    initAuth(this.state.user);
+    initJobs(this.state);
+    initProfile(this.state);
+    initCalculator();
+    initCalendar();
+    initMatching(this.state);
+    initModals();
+    initNotifications();
         
         // Setup event listeners
         this.setupEventListeners();
