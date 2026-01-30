@@ -34,6 +34,11 @@ function generateNavbarHTML(state) {
     ? ""
     : '<a href="tjanster.html" class="nav-link">Tjänster</a>';
 
+  // Hide "Så funkar det" link if on that page
+  const saFunkarDetLink = currentPath.includes("sa-funkar-det.html")
+    ? ""
+    : '<a href="sa-funkar-det.html" class="nav-link">Så funkar det</a>';
+
   // Hide "Profil" link if on profile page
   const profilLink = currentPath.includes("profil.html")
     ? ""
@@ -67,7 +72,7 @@ function generateNavbarHTML(state) {
         <div class="nav-menu" id="navMenu">
             ${hemLink}
             ${tjansterLink}
-            <a href="index.html#how-it-works" class="nav-link">Så funkar det</a>
+            ${saFunkarDetLink}
             ${profilLink}
 
             ${userSwitch}
