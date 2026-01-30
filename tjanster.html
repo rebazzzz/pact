@@ -31,25 +31,28 @@
     <header class="header">
         <div class="container">
             <nav class="navbar">
-                <!-- Navbar content will be dynamically generated -->
+                <!-- Navbar content loaded dynamically -->
             </nav>
         </div>
     </header>
 
     <!-- Main Content -->
     <main class="main">
+
         <!-- Hero Section -->
         <section class="hero">
             <div class="container">
                 <div class="hero-content">
-                    <h1 class="hero-title">Din nästa utmaning väntar</h1>
-                    <p class="hero-subtitle">Utforska spännande uppdrag och hjälp andra i ditt närområde – från enkla
-                        hushållssysslor till specialiserade tjänster</p>
+                    <h1 class="hero-title">Utforska uppdrag nära dig</h1>
+                    <p class="hero-subtitle">PACT hjälper dig att hitta och ta uppdrag som matchar dina färdigheter och intressen. Från enkla vardagsuppgifter till specialiserade tjänster.</p>
+                    <button class="btn btn-primary btn-large" id="postJobBtn">
+                        <i class="fas fa-plus"></i> Lägg ut ett nytt uppdrag
+                    </button>
                 </div>
             </div>
         </section>
 
-        <!-- AI Input Teaser -->
+        <!-- Filter & AI Teaser -->
         <section class="ai-input">
             <div class="container">
                 <div class="input-teaser">
@@ -60,11 +63,12 @@
         </section>
 
         <!-- Job Listings -->
-        <section class="job-listings" id="all-jobs">
+        <section class="job-listings">
             <div class="container">
+
                 <div class="listings-header">
                     <div>
-                        <h2 class="section-title">Alla uppdrag nära dig</h2>
+                        <h2 class="section-title">Alla tillgängliga uppdrag</h2>
                         <p class="location-info">
                             <i class="fas fa-map-marker-alt"></i>
                             <span id="currentLocation">Stockholm</span>
@@ -81,17 +85,15 @@
                             <option value="cleaning">Städning</option>
                         </select>
 
-                        <div class="matching-toggle">
-                            <label>
-                                <input type="checkbox" id="showMatchesOnly" checked>
-                                <span>Visa bästa matchningar</span>
-                            </label>
-                        </div>
+                        <label class="matching-toggle">
+                            <input type="checkbox" id="showMatchesOnly" checked>
+                            <span>Visa bästa matchningar</span>
+                        </label>
                     </div>
                 </div>
 
                 <div class="job-grid" id="jobGrid">
-                    <!-- Jobs loaded by JavaScript -->
+                    <!-- Job cards loaded dynamically -->
                 </div>
 
                 <div class="listings-footer">
@@ -99,6 +101,7 @@
                         <i class="fas fa-redo"></i> Ladda fler uppdrag
                     </button>
                 </div>
+
             </div>
         </section>
     </main>
@@ -111,17 +114,14 @@
     <!-- Job Detail Modal -->
     <div class="modal job-modal" id="jobModal">
         <div class="modal-content">
-            <!-- Job details loaded by JavaScript -->
+            <!-- Job details loaded dynamically -->
         </div>
     </div>
 
     <!-- Toast Notification -->
     <div class="toast" id="toast"></div>
 
-    <!-- JavaScript Files -->
+    <!-- JS -->
     <script type="module" src="scripts/app.js"></script>
-
-
 </body>
-
 </html>
