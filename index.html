@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html lang="sv">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PACT | Enkla uppdrag i ditt närområde</title>
-    
+
     <!-- CSS Files -->
     <link rel="stylesheet" href="styles/main.css">
-    
+
     <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤝</text></svg>">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤝</text></svg>">
 </head>
+
 <body>
     <!-- Theme Toggle -->
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
@@ -38,63 +41,20 @@
         <section class="hero">
             <div class="container">
                 <div class="hero-content">
-                    <h1 class="hero-title">Hjälp varandra med vardagliga uppgifter</h1>
-                    <p class="hero-subtitle">
-                        Enkel och trygg plattform för att hitta eller erbjuda hjälp med allt från möbelmontering till tekniksupport.
-                    </p>
-                    
-                    <div class="hero-actions">
-                        <button class="btn btn-primary btn-large" id="findHelpBtn">
-                            <i class="fas fa-search"></i> Hitta hjälp
-                        </button>
-                        <button class="btn btn-secondary btn-large" id="offerHelpBtn">
-                            <i class="fas fa-handshake"></i> Erbjud hjälp
-                        </button>
-                    </div>
-                    
-                    <div class="hero-features">
-                        <div class="feature">
-                            <i class="fas fa-shield-alt"></i>
-                            <span>Säkert med BankID</span>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-bolt"></i>
-                            <span>Snabb matchning</span>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-money-bill-wave"></i>
-                            <span>Enkel betalning</span>
-                        </div>
-                    </div>
+                    <h1 class="hero-title">Beskriv vad du behöver – vi matchar rätt person</h1>
+                    <button class="btn btn-primary btn-large" id="heroCtaBtn">
+                        <i class="fas fa-rocket"></i> Kom igång
+                    </button>
                 </div>
-                
-                <div class="hero-illustration">
-                    <div class="illustration-grid">
-                        <div class="illustration-item">
-                            <div class="illustration-icon">
-                                <i class="fas fa-tools"></i>
-                            </div>
-                            <div class="illustration-text">Montering</div>
-                        </div>
-                        <div class="illustration-item">
-                            <div class="illustration-icon">
-                                <i class="fas fa-truck"></i>
-                            </div>
-                            <div class="illustration-text">Transport</div>
-                        </div>
-                        <div class="illustration-item">
-                            <div class="illustration-icon">
-                                <i class="fas fa-laptop"></i>
-                            </div>
-                            <div class="illustration-text">Teknik</div>
-                        </div>
-                        <div class="illustration-item">
-                            <div class="illustration-icon">
-                                <i class="fas fa-paint-roller"></i>
-                            </div>
-                            <div class="illustration-text">Måleri</div>
-                        </div>
-                    </div>
+            </div>
+        </section>
+
+        <!-- AI Input Teaser -->
+        <section class="ai-input">
+            <div class="container">
+                <div class="input-teaser">
+                    <input type="text" readonly placeholder="Beskriv ditt behov här..." class="ai-input-field">
+                    <button class="btn btn-primary" disabled>AI Matchning</button>
                 </div>
             </div>
         </section>
@@ -111,7 +71,7 @@
                             <button class="location-change" id="changeLocation">Ändra</button>
                         </p>
                     </div>
-                    
+
                     <div class="listings-filters">
                         <select class="filter-select" id="categoryFilter">
                             <option value="all">Alla kategorier</option>
@@ -120,7 +80,7 @@
                             <option value="tech">Teknikhjälp</option>
                             <option value="cleaning">Städning</option>
                         </select>
-                        
+
                         <div class="matching-toggle">
                             <label>
                                 <input type="checkbox" id="showMatchesOnly" checked>
@@ -129,11 +89,11 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="job-grid" id="jobGrid">
                     <!-- Jobs loaded by JavaScript -->
                 </div>
-                
+
                 <div class="listings-footer">
                     <button class="btn btn-outline" id="loadMoreJobs">
                         <i class="fas fa-redo"></i> Ladda fler uppdrag
@@ -142,301 +102,87 @@
             </div>
         </section>
 
-        <!-- How It Works -->
+        <!-- Så funkar det -->
         <section class="how-it-works" id="how-it-works">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Så enkelt är det</h2>
+                    <h2 class="section-title">Så funkar det</h2>
                     <p class="section-subtitle">Tre enkla steg från behov till utfört uppdrag</p>
                 </div>
-                
+
                 <div class="steps">
                     <div class="step">
                         <div class="step-number">1</div>
                         <div class="step-content">
-                            <h3>Skapa annons</h3>
-                            <p>Beskriv vad du behöver hjälp med eller vad du kan hjälpa till med.</p>
+                            <h3>Beskriv behovet</h3>
+                            <p>Berätta vad du behöver hjälp med.</p>
                         </div>
                     </div>
-                    
+
                     <div class="step">
                         <div class="step-number">2</div>
                         <div class="step-content">
-                            <h3>Matcha & chatta</h3>
-                            <p>Vår AI hittar perfekt match. Diskutera detaljer i den säkra chatten.</p>
+                            <h3>AI matchar</h3>
+                            <p>Vår AI hittar rätt person för jobbet.</p>
                         </div>
                     </div>
-                    
+
                     <div class="step">
                         <div class="step-number">3</div>
                         <div class="step-content">
                             <h3>Genomför & betala</h3>
-                            <p>Genomför uppdraget och betala enkelt via Swish med skyddad betalning.</p>
+                            <p>Genomför uppdraget och betala säkert.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        
-
-        <!-- Pricing Calculator -->
-        <section class="calculator">
+        <!-- Trygghet & kvalitet -->
+        <section class="security-quality">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Priskalkylator</h2>
-                    <p class="section-subtitle">Få ett rimligt prisförslag för ditt uppdrag</p>
+                    <h2 class="section-title">Trygghet & kvalitet</h2>
+                    <p class="section-subtitle">Vi säkerställer en trygg upplevelse</p>
                 </div>
-                
-                <div class="calculator-container">
-                    <div class="calculator-sidebar">
-                        <div class="input-group">
-                            <label for="calcCategory">Uppdragstyp</label>
-                            <select id="calcCategory" class="input-select">
-                                <option value="assembly">Möbelmontering</option>
-                                <option value="moving">Flytt & Transport</option>
-                                <option value="tech">Teknikhjälp</option>
-                                <option value="cleaning">Städning</option>
-                                <option value="garden">Trädgårdsarbete</option>
-                            </select>
+
+                <div class="quality-grid">
+                    <div class="quality-card">
+                        <div class="quality-icon">
+                            <i class="fas fa-id-card"></i>
                         </div>
-                        
-                        <div class="input-group">
-                            <label for="calcTime">Beräknad tid</label>
-                            <div class="time-slider">
-                                <input type="range" id="calcTime" min="1" max="8" step="0.5" value="3">
-                                <div class="slider-value">
-                                    <span id="timeValue">3 timmar</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="input-group">
-                            <label>Komplexitet</label>
-                            <div class="complexity-selector">
-                                <button class="complexity-option" data-level="simple">Enkel</button>
-                                <button class="complexity-option active" data-level="medium">Medel</button>
-                                <button class="complexity-option" data-level="complex">Komplex</button>
-                            </div>
-                        </div>
-                        
-                        <div class="input-group">
-                            <label for="calcLocation">Område</label>
-                            <select id="calcLocation" class="input-select">
-                                <option value="stockholm">Stockholm</option>
-                                <option value="goteborg">Göteborg</option>
-                                <option value="malmo">Malmö</option>
-                                <option value="other">Annat område</option>
-                            </select>
-                        </div>
+                        <h4>BankID-verifiering</h4>
+                        <p>Alla användare verifieras med BankID.</p>
                     </div>
-                    
-                    <div class="calculator-results">
-                        <div class="result-card">
-                            <div class="result-header">
-                                <h3>Förslag på pris</h3>
-                                <div class="price-range">
-                                    <span class="price-min" id="priceMin">450 kr</span>
-                                    <span class="price-separator">-</span>
-                                    <span class="price-max" id="priceMax">600 kr</span>
-                                </div>
-                            </div>
-                            
-                            <div class="price-breakdown">
-                                <div class="breakdown-row">
-                                    <span>Baspris (3h)</span>
-                                    <span>450 kr</span>
-                                </div>
-                                <div class="breakdown-row">
-                                    <span>Tillägg komplexitet</span>
-                                    <span>+75 kr</span>
-                                </div>
-                                <div class="breakdown-row">
-                                    <span>Tillägg område</span>
-                                    <span>+75 kr</span>
-                                </div>
-                                <div class="breakdown-row total">
-                                    <span>Totalt</span>
-                                    <span>600 kr</span>
-                                </div>
-                            </div>
-                            
-                            <div class="market-comparison">
-                                <i class="fas fa-chart-bar"></i>
-                                <span>Marknadspris i området: 500-700 kr</span>
-                            </div>
-                            
-                            <button class="btn btn-primary btn-block" id="usePriceBtn">
-                                <i class="fas fa-check"></i> Använd detta pris
-                            </button>
+
+                    <div class="quality-card">
+                        <div class="quality-icon">
+                            <i class="fas fa-file-contract"></i>
                         </div>
+                        <h4>Digitala avtal</h4>
+                        <p>AI-genererade avtal för varje uppdrag.</p>
+                    </div>
+
+                    <div class="quality-card">
+                        <div class="quality-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>Betygssystem</h4>
+                        <p>Recensioner och betyg från tidigare kunder.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Agreement Generator -->
-        <section class="agreement">
+        <!-- CTA: Logga in med BankID -->
+        <section class="cta-bankid">
             <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">AI-genererat avtal</h2>
-                    <p class="section-subtitle">Säkra uppdraget med ett professionellt avtal</p>
-                </div>
-                
-                <div class="agreement-container">
-                    <div class="agreement-preview">
-                        <div class="agreement-header">
-                            <h3>Avtalsförslag</h3>
-                            <span class="agreement-status">Utkast</span>
-                        </div>
-                        <div class="agreement-content" id="agreementContent">
-                            <!-- Agreement content loaded by JavaScript -->
-                        </div>
-                    </div>
-                    
-                    <div class="agreement-controls">
-                        <div class="control-group">
-                            <h4>Avtalsvillkor</h4>
-                            <div class="checkbox-group">
-                                <label>
-                                    <input type="checkbox" id="includeInsurance" checked>
-                                    <span>Inkludera ansvarsförsäkring</span>
-                                </label>
-                                <label>
-                                    <input type="checkbox" id="includeMaterials" checked>
-                                    <span>Materialkostnader specificeras</span>
-                                </label>
-                                <label>
-                                    <input type="checkbox" id="includeWarranty">
-                                    <span>30 dagars garanti</span>
-                                </label>
-                            </div>
-                        </div>
-                        
-                        <div class="action-buttons">
-                            <button class="btn btn-outline" id="generateAgreementBtn">
-                                <i class="fas fa-robot"></i> Generera avtal
-                            </button>
-                            <button class="btn btn-primary" id="signAgreementBtn">
-                                <i class="fas fa-signature"></i> Signera med BankID
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Community Guidelines -->
-        <section class="community">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Tryggt & Säkerhet</h2>
-                    <p class="section-subtitle">Våra riktlinjer för en bra upplevelse</p>
-                </div>
-                
-                <div class="guidelines-grid">
-                    <div class="guideline-card">
-                        <div class="guideline-icon">
-                            <i class="fas fa-handshake"></i>
-                        </div>
-                        <h4>Var respektfull</h4>
-                        <p>All kommunikation ska vara artig och konstruktiv.</p>
-                    </div>
-                    
-                    <div class="guideline-card">
-                        <div class="guideline-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <h4>Kom i tid</h4>
-                        <p>Meddela om förseningar så snart som möjligt.</p>
-                    </div>
-                    
-                    <div class="guideline-card">
-                        <div class="guideline-icon">
-                            <i class="fas fa-comments"></i>
-                        </div>
-                        <h4>Kommunikera tydligt</h4>
-                        <p>Var tydlig med förväntningar och villkor.</p>
-                    </div>
-                    
-                    <div class="guideline-card">
-                        <div class="guideline-icon">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <h4>Säkerhet först</h4>
-                        <p>Använd alltid PACT för betalningar och avtal.</p>
-                    </div>
-                </div>
-                
-                <div class="emergency-section">
-                    <button class="btn btn-danger" id="emergencyBtn">
-                        <i class="fas fa-exclamation-triangle"></i> Nödinformation
+                <div class="cta-content">
+                    <h2>Kom igång idag</h2>
+                    <p>Logga in med BankID och börja hjälpa eller få hjälp.</p>
+                    <button class="btn btn-primary btn-large" id="bankIdLoginBtn">
+                        <i class="fas fa-id-card"></i> Logga in med BankID
                     </button>
-                    <div class="emergency-info" id="emergencyInfo" style="display: none;">
-                        <h4>Om du känner dig otrygg:</h4>
-                        <ul>
-                            <li>Lämna platsen omedelbart</li>
-                            <li>Kontakta PACT support: 08-123 456 78</li>
-                            <li>Vid akut fara: Ring 112</li>
-                        </ul>
-                        <button class="btn btn-outline" id="shareLocationBtn">
-                            <i class="fas fa-location-arrow"></i> Dela din plats med support
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Market Insights -->
-        <section class="insights">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Marknadsinsikter</h2>
-                    <p class="section-subtitle">Vad är populärt just nu i ditt område</p>
-                </div>
-                
-                <div class="insights-grid">
-                    <div class="insight-card">
-                        <div class="insight-header">
-                            <h3>Populäraste kategorierna</h3>
-                            <span class="trend-up">+25%</span>
-                        </div>
-                        <div class="insight-list">
-                            <div class="insight-item">
-                                <span>Möbelmontering</span>
-                                <span>42 uppdrag</span>
-                            </div>
-                            <div class="insight-item">
-                                <span>Teknikhjälp</span>
-                                <span>38 uppdrag</span>
-                            </div>
-                            <div class="insight-item">
-                                <span>Flytthjälp</span>
-                                <span>35 uppdrag</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="insight-card">
-                        <div class="insight-header">
-                            <h3>Topptider</h3>
-                            <span>Hög efterfrågan</span>
-                        </div>
-                        <div class="time-slots">
-                            <div class="time-slot active">
-                                <span>Lördag 10-14</span>
-                                <div class="demand-indicator high"></div>
-                            </div>
-                            <div class="time-slot">
-                                <span>Söndag 12-16</span>
-                                <div class="demand-indicator medium"></div>
-                            </div>
-                            <div class="time-slot">
-                                <span>Vardagar 17-20</span>
-                                <div class="demand-indicator medium"></div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -499,4 +245,5 @@
     <!-- JavaScript Files -->
     <script type="module" src="scripts/app.js"></script>
 </body>
+
 </html>
