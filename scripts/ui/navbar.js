@@ -26,6 +26,10 @@ function generateNavbarHTML(state) {
     const currentPath = window.location.pathname;
 
     // Left navigation links
+    const hemLink = (currentPath === "/" || currentPath === "/index.html")
+        ? ""
+        : '<a href="index.html" class="nav-link">Hem</a>';
+
     const uppdragLink = currentPath.includes("tjanster.html")
         ? ""
         : '<a href="tjanster.html" class="nav-link">Uppdrag</a>';
@@ -58,6 +62,7 @@ function generateNavbarHTML(state) {
         </a>
 
         <div class="nav-menu" id="navMenu">
+            ${hemLink}
             ${uppdragLink}
             ${saFunkarDetLink}
             ${bliUtförareLink}
