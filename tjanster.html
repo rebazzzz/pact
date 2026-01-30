@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alla uppdrag | PACT</title>
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components/job-grid.css">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤝</text></svg>">
+</head>
+
+<body>
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <!-- Navbar content will be dynamically generated -->
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Din nästa utmaning väntar</h1>
+                    <p class="hero-subtitle">Utforska spännande uppdrag och hjälp andra i ditt närområde – från enkla
+                        hushållssysslor till specialiserade tjänster</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Input Teaser -->
+        <section class="ai-input">
+            <div class="container">
+                <div class="input-teaser">
+                    <input type="text" readonly placeholder="Beskriv ditt behov här..." class="ai-input-field">
+                    <button class="btn btn-primary" disabled>AI Matchning</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Job Listings -->
+        <section class="job-listings" id="all-jobs">
+            <div class="container">
+                <div class="listings-header">
+                    <div>
+                        <h2 class="section-title">Alla uppdrag nära dig</h2>
+                        <p class="location-info">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span id="currentLocation">Stockholm</span>
+                            <button class="location-change" id="changeLocation">Ändra</button>
+                        </p>
+                    </div>
+
+                    <div class="listings-filters">
+                        <select class="filter-select" id="categoryFilter">
+                            <option value="all">Alla kategorier</option>
+                            <option value="assembly">Montering</option>
+                            <option value="moving">Flytt & Transport</option>
+                            <option value="tech">Teknikhjälp</option>
+                            <option value="cleaning">Städning</option>
+                        </select>
+
+                        <div class="matching-toggle">
+                            <label>
+                                <input type="checkbox" id="showMatchesOnly" checked>
+                                <span>Visa bästa matchningar</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="job-grid" id="jobGrid">
+                    <!-- Jobs loaded by JavaScript -->
+                </div>
+
+                <div class="listings-footer">
+                    <button class="btn btn-outline" id="loadMoreJobs">
+                        <i class="fas fa-redo"></i> Ladda fler uppdrag
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <!-- Footer content will be dynamically generated -->
+    </footer>
+
+    <!-- Job Detail Modal -->
+    <div class="modal job-modal" id="jobModal">
+        <div class="modal-content">
+            <!-- Job details loaded by JavaScript -->
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+
+    <!-- JavaScript Files -->
+    <script type="module" src="scripts/app.js"></script>
+
+
+</body>
+
+</html>
