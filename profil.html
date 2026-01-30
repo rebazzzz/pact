@@ -44,42 +44,39 @@
                     <div class="profile-info">
                         <div class="profile-avatar-large">
                             <span>A</span>
-                            <div class="verified-badge">
-                                <i class="fas fa-shield-alt"></i>
-                            </div>
                         </div>
                         <div class="profile-details">
                             <h2>Anders Svensson</h2>
                             <p class="profile-title">Frontend-utvecklare & DIY-entusiast</p>
+                            <p class="profile-description">Professionell webbutvecklare med över 5 års erfarenhet inom
+                                frontend-teknologier. Specialiserad på React, Vue.js och moderna webbstandarder.
+                                Passionerad för användarupplevelse och tillgänglighet.</p>
 
-                            <div class="profile-badges">
-                                <span class="badge badge-success">
-                                    <i class="fas fa-check-circle"></i> BankID-verifierad
-                                </span>
-                                <span class="badge badge-warning">
-                                    <i class="fas fa-star"></i> Toppbetyg
-                                </span>
-                                <span class="badge badge-info">
-                                    <i class="fas fa-bolt"></i> Snabb respons
-                                </span>
+                            <div class="profile-stats">
+                                <div class="stat">
+                                    <span class="stat-number">47</span>
+                                    <span class="stat-label">Uppdrag slutförda</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-number">4.9</span>
+                                    <span class="stat-label">Genomsnittligt betyg</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-number">98%</span>
+                                    <span class="stat-label">Responsgrad</span>
+                                </div>
                             </div>
 
-                            <div class="profile-meta">
-                                <div class="meta-item">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    <span>Stockholm</span>
-                                </div>
-                                <div class="meta-item">
-                                    <i class="fas fa-user-clock"></i>
-                                    <span>Medlem sedan 2023</span>
-                                </div>
+                            <div class="profile-verification">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Verifierad profil • Medlem sedan 2023</span>
                             </div>
                         </div>
                     </div>
 
                     <div class="profile-actions">
                         <button class="btn btn-outline" id="editProfileBtn">
-                            <i class="fas fa-edit"></i> Redigera
+                            <i class="fas fa-user-edit"></i> Hantera profil
                         </button>
                         <button class="btn btn-primary" id="viewStatsBtn">
                             <i class="fas fa-chart-line"></i> Statistik
@@ -91,46 +88,14 @@
             </div>
         </section>
 
-        <!-- Profile Settings -->
+        <!-- Additional Settings -->
         <section class="profile-settings" id="profile-settings">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Profilinställningar</h2>
+                    <h2 class="section-title">Ytterligare inställningar</h2>
                 </div>
 
                 <div class="settings-grid">
-                    <div class="setting-card">
-                        <div class="setting-icon">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <h3>Personuppgifter</h3>
-                        <p>BankID-verifierad</p>
-                    </div>
-
-                    <div class="setting-card">
-                        <div class="setting-icon">
-                            <i class="fas fa-user-tag"></i>
-                        </div>
-                        <h3>Roller</h3>
-                        <p>Kund & Utförare</p>
-                    </div>
-
-                    <div class="setting-card">
-                        <div class="setting-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <h3>Område</h3>
-                        <p>Stockholm</p>
-                    </div>
-
-                    <div class="setting-card">
-                        <div class="setting-icon">
-                            <i class="fas fa-language"></i>
-                        </div>
-                        <h3>Språk</h3>
-                        <p>Svenska, Engelska</p>
-                    </div>
-
                     <div class="setting-card">
                         <div class="setting-icon">
                             <i class="fas fa-star"></i>
@@ -163,6 +128,8 @@
     <footer class="footer">
         <!-- Footer content will be dynamically generated -->
     </footer>
+
+
 
     <!-- Toast Notification -->
     <div class="toast" id="toast"></div>
