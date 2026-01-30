@@ -66,7 +66,9 @@ function generateNavbarHTML(state) {
                     <i class="fas fa-plus"></i> Nytt uppdrag
                 </button>
                 <div class="user-menu">
+            <a href="profil.html">
                     <div class="user-avatar" id="userAvatar">${user.name.charAt(0)}</div>
+            </a>
                 </div>
             </div>
         </div>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="sv">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,8 +16,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤝</text></svg>">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤝</text></svg>">
 </head>
+
 <body>
     <!-- Theme Toggle -->
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
@@ -84,108 +87,72 @@
                     </div>
                 </div>
 
-                <!-- Skills Section -->
-                <div class="skills-section">
-                    <h3>Kompetenser & Rekommendationer</h3>
-                    <div class="skills-grid" id="skillsGrid">
-                        <!-- Skills loaded by JavaScript -->
-                    </div>
-                </div>
+
             </div>
         </section>
 
-        <!-- Dashboard -->
-        <section class="dashboard" id="dashboard">
+        <!-- Profile Settings -->
+        <section class="profile-settings" id="profile-settings">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Ditt Dashboard</h2>
-                    <div class="dashboard-period">
-                        <span>Denna vecka</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
+                    <h2 class="section-title">Profilinställningar</h2>
                 </div>
 
-                <div class="dashboard-grid">
-                    <!-- Stats Cards -->
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <i class="fas fa-briefcase"></i>
+                <div class="settings-grid">
+                    <div class="setting-card">
+                        <div class="setting-icon">
+                            <i class="fas fa-user"></i>
                         </div>
-                        <div class="stat-content">
-                            <div class="stat-value" id="jobsCompleted">3</div>
-                            <div class="stat-label">Uppdrag</div>
-                        </div>
+                        <h3>Personuppgifter</h3>
+                        <p>BankID-verifierad</p>
                     </div>
 
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <i class="fas fa-money-bill-wave"></i>
+                    <div class="setting-card">
+                        <div class="setting-icon">
+                            <i class="fas fa-user-tag"></i>
                         </div>
-                        <div class="stat-content">
-                            <div class="stat-value" id="totalEarnings">2,150 kr</div>
-                            <div class="stat-label">Intäkter</div>
-                        </div>
+                        <h3>Roller</h3>
+                        <p>Kund & Utförare</p>
                     </div>
 
-                    <div class="stat-card">
-                        <div class="stat-icon">
+                    <div class="setting-card">
+                        <div class="setting-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Område</h3>
+                        <p>Stockholm</p>
+                    </div>
+
+                    <div class="setting-card">
+                        <div class="setting-icon">
+                            <i class="fas fa-language"></i>
+                        </div>
+                        <h3>Språk</h3>
+                        <p>Svenska, Engelska</p>
+                    </div>
+
+                    <div class="setting-card">
+                        <div class="setting-icon">
                             <i class="fas fa-star"></i>
                         </div>
-                        <div class="stat-content">
-                            <div class="stat-value" id="averageRating">4.8</div>
-                            <div class="stat-label">Betyg</div>
-                        </div>
+                        <h3>Betyg & recensioner</h3>
+                        <p>4.8 (12 recensioner)</p>
                     </div>
 
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <i class="fas fa-clock"></i>
+                    <div class="setting-card">
+                        <div class="setting-icon">
+                            <i class="fas fa-credit-card"></i>
                         </div>
-                        <div class="stat-content">
-                            <div class="stat-value" id="hoursWorked">12h</div>
-                            <div class="stat-label">Arbetad tid</div>
-                        </div>
+                        <h3>Betalningar & utbetalningar</h3>
+                        <p>Hantera betalningar</p>
                     </div>
 
-                    <!-- Calendar Widget -->
-                    <div class="dashboard-widget calendar-widget">
-                        <div class="widget-header">
-                            <h3>Kalender</h3>
-                            <button class="btn-icon" id="addToCalendar">
-                                <i class="fas fa-plus"></i>
-                            </button>
+                    <div class="setting-card">
+                        <div class="setting-icon">
+                            <i class="fas fa-cog"></i>
                         </div>
-                        <div class="mini-calendar" id="miniCalendar">
-                            <!-- Calendar loaded by JavaScript -->
-                        </div>
-                    </div>
-
-                    <!-- Availability Widget -->
-                    <div class="dashboard-widget availability-widget">
-                        <div class="widget-header">
-                            <h3>Tillgänglighet</h3>
-                            <label class="switch">
-                                <input type="checkbox" id="availabilityToggle" checked>
-                                <span class="slider"></span>
-                            </label>
-                        </div>
-                        <div class="availability-slots" id="availabilitySlots">
-                            <!-- Availability slots loaded by JavaScript -->
-                        </div>
-                    </div>
-
-                    <!-- Referral Widget -->
-                    <div class="dashboard-widget referral-widget">
-                        <div class="widget-header">
-                            <h3>Bjud in vänner</h3>
-                            <span class="badge">+100 kr</span>
-                        </div>
-                        <div class="referral-code" id="referralCode">
-                            PACT-FRIEND
-                        </div>
-                        <button class="btn btn-outline btn-small" id="copyReferralCode">
-                            <i class="far fa-copy"></i> Kopiera kod
-                        </button>
+                        <h3>Inställningar</h3>
+                        <p>Allmänna inställningar</p>
                     </div>
                 </div>
             </div>
@@ -203,4 +170,5 @@
     <!-- JavaScript Files -->
     <script type="module" src="scripts/app.js"></script>
 </body>
+
 </html>
