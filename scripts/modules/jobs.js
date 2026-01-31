@@ -262,7 +262,16 @@ const serviceFilters = [
     id: "fler",
     name: "Fler",
     icon: "fas fa-ellipsis-h",
-    subcategories: ["Övrigt", "Fest", "Evenemang", "Special"],
+    subcategories: [
+      "Övrigt",
+      "Fest",
+      "Evenemang",
+      "Special",
+      "Hushållshjälp",
+      "Inredning",
+      "Fotografering",
+      "Musik",
+    ],
   },
 ];
 
@@ -272,6 +281,7 @@ export function initJobs(state) {
   // Load jobs into state
   state.jobs = [...sampleJobs];
   state.currentFilter = "all";
+  state.currentFilterId = null;
   state.currentSubcategory = null;
 
   // Initialize UI
@@ -331,23 +341,14 @@ function renderSubcategories(state) {
 
   let subcategories = [];
 
-  if (state.currentFilter === "all") {
+  if (!state.currentFilterId) {
     // Show general subcategories when no filter is selected
     subcategories = generalSubcategories;
   } else {
-    // Find the active filter and show its specific subcategories
-    const activeFilter = serviceFilters.find((filter) => {
-      const filterToCategoryMap = {
-        stad: "cleaning",
-        flytt: "moving",
-        barnpassning: "trending",
-        bilvard: "trending",
-        "hem-teknik": "repairs",
-        tradgard: "outdoor",
-        fler: "all",
-      };
-      return filterToCategoryMap[filter.id] === state.currentFilter;
-    });
+    // Find the active filter by ID and show its specific subcategories
+    const activeFilter = serviceFilters.find(
+      (filter) => filter.id === state.currentFilterId,
+    );
 
     if (activeFilter) {
       subcategories = activeFilter.subcategories;
@@ -466,15 +467,15 @@ function setupJobEventListeners(state) {
     if (filterItem) {
       const filterId = filterItem.dataset.filter;
 
-      // Map filter IDs to category IDs
+      // Map filter IDs to category IDs for job filtering
       const filterToCategoryMap = {
         stad: "cleaning",
         flytt: "moving",
-        barnpassning: "trending", // or create a new category
-        bilvard: "trending", // or create a new category
+        barnpassning: "trending",
+        bilvard: "trending",
         "hem-teknik": "repairs",
         tradgard: "outdoor",
-        fler: "all",
+        fler: "misc",
       };
 
       const category = filterToCategoryMap[filterId] || "all";
@@ -485,6 +486,7 @@ function setupJobEventListeners(state) {
       if (isActive) {
         // If clicking the active filter, deselect it and show all jobs
         state.currentFilter = "all";
+        state.currentFilterId = null;
         state.currentSubcategory = null;
         renderSubcategories(state);
         renderJobs(state);
@@ -503,6 +505,7 @@ function setupJobEventListeners(state) {
       } else {
         // Select the new filter
         state.currentFilter = category;
+        state.currentFilterId = filterId;
         state.currentSubcategory = null; // Reset subcategory when main filter is clicked
         renderSubcategories(state); // Update subcategories
         renderJobs(state);
