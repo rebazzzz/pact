@@ -173,6 +173,7 @@ export function initJobs(state) {
 
   // Load jobs into state
   state.jobs = [...sampleJobs];
+  state.currentFilter = "all";
 
   // Initialize UI
   renderCategories();
@@ -228,29 +229,8 @@ function renderJobs(state) {
   const container = document.getElementById("jobGrid");
   if (!container) return;
 
-  // Get filter values
-  const categoryFilter = document.getElementById("categoryFilter");
-  const showMatchesOnly = document.getElementById("showMatchesOnly");
-
-  const selectedCategory = categoryFilter ? categoryFilter.value : "all";
-  const onlyMatches = showMatchesOnly ? showMatchesOnly.checked : false;
-
-  // Filter jobs
-  let filteredJobs = [...state.jobs];
-
-  if (selectedCategory !== "all") {
-    filteredJobs = filteredJobs.filter(
-      (job) => job.category === selectedCategory,
-    );
-  }
-
-  if (onlyMatches) {
-    filteredJobs = filteredJobs.filter((job) => job.matchScore > 70);
-    filteredJobs.sort((a, b) => b.matchScore - a.matchScore);
-  }
-
   // Render jobs
-  const html = filteredJobs
+  const html = state.jobs
     .map(
       (job) => `
         <div class="job-card" data-job-id="${job.id}">
@@ -288,29 +268,15 @@ function renderJobs(state) {
 }
 
 function setupJobEventListeners(state) {
-  // Category filter
-  const categoryFilter = document.getElementById("categoryFilter");
-  if (categoryFilter) {
-    categoryFilter.addEventListener("change", () => renderJobs(state));
-  }
-
-  // Match filter
-  const showMatchesOnly = document.getElementById("showMatchesOnly");
-  if (showMatchesOnly) {
-    showMatchesOnly.addEventListener("change", () => renderJobs(state));
-  }
-
   // Category cards
   document.querySelectorAll(".category-card").forEach((card) => {
     card.addEventListener("click", function () {
       const category = this.dataset.category;
-      if (categoryFilter) {
-        categoryFilter.value = category;
-        renderJobs(state);
+      state.currentFilter = category;
+      renderJobs(state);
 
-        // Scroll to job listings
-        document.getElementById("jobs")?.scrollIntoView({ behavior: "smooth" });
-      }
+      // Scroll to job listings
+      document.getElementById("jobs")?.scrollIntoView({ behavior: "smooth" });
     });
   });
 
@@ -322,30 +288,32 @@ function setupJobEventListeners(state) {
 
       // Map filter IDs to category IDs
       const filterToCategoryMap = {
-        "stad": "cleaning",
-        "flytt": "moving",
-        "barnpassning": "trending", // or create a new category
-        "bilvard": "trending", // or create a new category
+        stad: "cleaning",
+        flytt: "moving",
+        barnpassning: "trending", // or create a new category
+        bilvard: "trending", // or create a new category
         "hem-teknik": "repairs",
-        "tradgard": "outdoor",
-        "fler": "all"
+        tradgard: "outdoor",
+        fler: "all",
       };
 
       const category = filterToCategoryMap[filterId] || "all";
 
-      if (categoryFilter) {
-        categoryFilter.value = category;
-        renderJobs(state);
+      state.currentFilter = category;
+      renderJobs(state);
 
-        // Scroll to job listings
-        document.getElementById("jobs")?.scrollIntoView({ behavior: "smooth" });
+      // Scroll to job listings
+      document.getElementById("jobs")?.scrollIntoView({ behavior: "smooth" });
 
-        // Update active filter visual
-        document.querySelectorAll(".filter-item").forEach(item => item.classList.remove("active"));
-        filterItem.classList.add("active");
+      // Update active filter visual
+      document
+        .querySelectorAll(".filter-item")
+        .forEach((item) => item.classList.remove("active"));
+      filterItem.classList.add("active");
 
-        window.showToast?.(`Visar ${filterItem.querySelector(".filter-name").textContent} uppdrag`);
-      }
+      window.showToast?.(
+        `Visar ${filterItem.querySelector(".filter-name").textContent} uppdrag`,
+      );
     }
   });
 
