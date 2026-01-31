@@ -234,7 +234,6 @@ function renderJobs(state) {
     .map(
       (job) => `
         <div class="job-card" data-job-id="${job.id}">
-            <div class="job-match">${job.matchScore}% match</div>
             <div class="job-image">
                 <i class="${job.icon}"></i>
             </div>
@@ -249,15 +248,7 @@ function renderJobs(state) {
                 <div class="job-tags">
                     ${job.skills.map((skill) => `<span class="job-tag">${skill}</span>`).join("")}
                 </div>
-                <div class="job-footer">
-                    <div class="job-author">
-                        <div class="author-avatar">${job.author.charAt(0)}</div>
-                        <div class="author-name">${job.author}</div>
-                    </div>
-                    <button class="btn-icon btn-save" title="Spara uppdrag">
-                        <i class="far fa-bookmark"></i>
-                    </button>
-                </div>
+
             </div>
         </div>
     `,
@@ -327,15 +318,6 @@ function setupJobEventListeners(state) {
       if (job) {
         showJobDetails(job);
       }
-    }
-
-    // Save button
-    const saveBtn = e.target.closest(".btn-save");
-    if (saveBtn) {
-      e.stopPropagation();
-      const jobCard = saveBtn.closest(".job-card");
-      const jobId = parseInt(jobCard.dataset.jobId);
-      toggleSaveJob(jobId, saveBtn, state);
     }
   });
 

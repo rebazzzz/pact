@@ -111,32 +111,32 @@
 }
 
 .job-image {
-  height: 180px;
+  height: 140px;
   background-color: var(--color-bg-light);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--color-text-lighter);
-  font-size: var(--font-size-2xl);
+  font-size: var(--font-size-lg);
   overflow: hidden;
 }
 
 .job-content {
-  padding: var(--spacing-lg);
+  padding: var(--spacing-sm);
 }
 
 .job-title {
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-base);
   font-weight: 600;
-  margin-bottom: var(--spacing-sm);
+  margin-bottom: var(--spacing-xs);
   color: var(--color-text);
   line-height: 1.4;
 }
 
 .job-description {
   color: var(--color-text-light);
-  margin-bottom: var(--spacing-md);
-  font-size: var(--font-size-sm);
+  margin-bottom: var(--spacing-sm);
+  font-size: var(--font-size-xs);
   line-height: 1.5;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -147,10 +147,10 @@
 .job-meta {
   display: flex;
   align-items: center;
-  gap: var(--spacing-md);
-  margin-bottom: var(--spacing-md);
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
   color: var(--color-text-light);
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
 }
 
 .job-meta i {
@@ -158,17 +158,17 @@
 }
 
 .job-price {
-  font-size: var(--font-size-xl);
+  font-size: var(--font-size-lg);
   font-weight: 700;
   color: var(--color-primary);
-  margin-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
 }
 
 .job-tags {
   display: flex;
   flex-wrap: wrap;
   gap: var(--spacing-xs);
-  margin-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
 }
 
 .job-tag {
@@ -184,7 +184,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: var(--spacing-md);
+  padding-top: var(--spacing-sm);
   border-top: 1px solid var(--color-border);
 }
 
