@@ -1,7 +1,20 @@
-/* ===== LIGHT THEME (Default) ===== */
-/* This file is intentionally minimal since light theme is default in reset.css */
-/* You can override specific light theme variables here if needed */
-
+/* ===== LIGHT THEME (TaskRabbit-inspired) ===== */
 body.light-mode {
-    /* Light theme is default, so we just ensure the classes exist */
+    --color-primary: #0073e6;
+    --color-primary-light: #4da6ff;
+    --color-primary-dark: #0056b3;
+    --color-secondary: #6c757d;
+    --color-accent: #ff6b35;
+    --color-text: #333333;
+    --color-text-light: #666666;
+    --color-text-lighter: #888888;
+    --color-border: #e0e0e0;
+    --color-bg: #ffffff;
+    --color-bg-light: #f8f9fa;
+    --color-bg-lighter: #f2f4f5;
+    --color-white: #ffffff;
+    --color-success: #28a745;
+    --color-warning: #ffc107;
+    --color-danger: #dc3545;
+    --color-info: #17a2b8;
 }
