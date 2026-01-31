@@ -187,15 +187,83 @@ const categories = [
   },
 ];
 
+// General subcategories (shown when no filter is selected)
+const generalSubcategories = ["Populära", "Nya", "Snabbt", "Lokalt", "Betyg"];
+
 // Service filters
 const serviceFilters = [
-  { id: "stad", name: "Städ", icon: "fas fa-broom" },
-  { id: "flytt", name: "Flytt", icon: "fas fa-truck-moving" },
-  { id: "barnpassning", name: "Barnpassning", icon: "fas fa-child" },
-  { id: "bilvard", name: "Bilvård", icon: "fas fa-car" },
-  { id: "hem-teknik", name: "Hem & teknik", icon: "fas fa-home" },
-  { id: "tradgard", name: "Trädgård", icon: "fas fa-leaf" },
-  { id: "fler", name: "Fler", icon: "fas fa-ellipsis-h" },
+  {
+    id: "stad",
+    name: "Städ",
+    icon: "fas fa-broom",
+    subcategories: ["Städning", "Fönsterputs", "Trädgård", "Kök", "Badrum"],
+  },
+  {
+    id: "flytt",
+    name: "Flytt",
+    icon: "fas fa-truck-moving",
+    subcategories: [
+      "Flytt",
+      "Transport",
+      "Möbelmontering",
+      "Packning",
+      "Upphämtning",
+    ],
+  },
+  {
+    id: "barnpassning",
+    name: "Barnpassning",
+    icon: "fas fa-child",
+    subcategories: [
+      "Barnpassning",
+      "Hundpassning",
+      "Äldrevård",
+      "Lektioner",
+      "Hushåll",
+    ],
+  },
+  {
+    id: "bilvard",
+    name: "Bilvård",
+    icon: "fas fa-car",
+    subcategories: [
+      "Bilvård",
+      "Cykelreparation",
+      "Motoreparation",
+      "Däckbyte",
+      "Polering",
+    ],
+  },
+  {
+    id: "hem-teknik",
+    name: "Hem & teknik",
+    icon: "fas fa-home",
+    subcategories: [
+      "Tekniksupport",
+      "Installation",
+      "Reparationer",
+      "Wifi",
+      "Smart Home",
+    ],
+  },
+  {
+    id: "tradgard",
+    name: "Trädgård",
+    icon: "fas fa-leaf",
+    subcategories: [
+      "Trädgård",
+      "Snöskottning",
+      "Gräsklippning",
+      "Plantering",
+      "Trädvård",
+    ],
+  },
+  {
+    id: "fler",
+    name: "Fler",
+    icon: "fas fa-ellipsis-h",
+    subcategories: ["Övrigt", "Fest", "Evenemang", "Special"],
+  },
 ];
 
 export function initJobs(state) {
@@ -204,10 +272,12 @@ export function initJobs(state) {
   // Load jobs into state
   state.jobs = [...sampleJobs];
   state.currentFilter = "all";
+  state.currentSubcategory = null;
 
   // Initialize UI
   renderCategories();
   renderServiceFilters();
+  renderSubcategories(state);
   renderJobs(state);
 
   // Setup event listeners
@@ -255,12 +325,67 @@ function renderServiceFilters() {
   container.innerHTML = html;
 }
 
+function renderSubcategories(state) {
+  const container = document.getElementById("subcategoriesList");
+  if (!container) return;
+
+  let subcategories = [];
+
+  if (state.currentFilter === "all") {
+    // Show general subcategories when no filter is selected
+    subcategories = generalSubcategories;
+  } else {
+    // Find the active filter and show its specific subcategories
+    const activeFilter = serviceFilters.find((filter) => {
+      const filterToCategoryMap = {
+        stad: "cleaning",
+        flytt: "moving",
+        barnpassning: "trending",
+        bilvard: "trending",
+        "hem-teknik": "repairs",
+        tradgard: "outdoor",
+        fler: "all",
+      };
+      return filterToCategoryMap[filter.id] === state.currentFilter;
+    });
+
+    if (activeFilter) {
+      subcategories = activeFilter.subcategories;
+    }
+  }
+
+  const html = subcategories
+    .map(
+      (sub) =>
+        `<span class="subcategory-item" data-subcategory="${sub}">${sub}</span>`,
+    )
+    .join("");
+
+  container.innerHTML = html;
+}
+
 function renderJobs(state) {
   const container = document.getElementById("jobGrid");
   if (!container) return;
 
+  let filteredJobs = state.jobs;
+
+  // Filter by category
+  if (state.currentFilter !== "all") {
+    filteredJobs = filteredJobs.filter(
+      (job) => job.category === state.currentFilter,
+    );
+  }
+
+  // Filter by subcategory
+  if (state.currentSubcategory) {
+    filteredJobs = filteredJobs.filter((job) =>
+      job.skills.includes(state.currentSubcategory),
+    );
+  }
+
   // Render jobs
-  const html = state.jobs
+  const html = filteredJobs
     .map(
       (job) => `
         <div class="job-card" data-job-id="${job.id}">
@@ -303,6 +428,40 @@ function setupJobEventListeners(state) {
 
   // Service filters
   document.addEventListener("click", function (e) {
+    const subcategoryItem = e.target.closest(".subcategory-item");
+    if (subcategoryItem) {
+      const subcategory = subcategoryItem.dataset.subcategory;
+
+      // Check if this subcategory is already active
+      const isActive = subcategoryItem.classList.contains("active");
+
+      if (isActive) {
+        // If clicking the active subcategory, deselect it
+        state.currentSubcategory = null;
+        renderJobs(state);
+
+        // Update active subcategory visual
+        document
+          .querySelectorAll(".subcategory-item")
+          .forEach((item) => item.classList.remove("active"));
+
+        window.showToast?.("Visar alla uppdrag i kategorin");
+      } else {
+        // Select the new subcategory
+        state.currentSubcategory = subcategory;
+        renderJobs(state);
+
+        // Update active subcategory visual
+        document
+          .querySelectorAll(".subcategory-item")
+          .forEach((item) => item.classList.remove("active"));
+        subcategoryItem.classList.add("active");
+
+        window.showToast?.(`Visar ${subcategory} uppdrag`);
+      }
+      return;
+    }
+
     const filterItem = e.target.closest(".filter-item");
     if (filterItem) {
       const filterId = filterItem.dataset.filter;
@@ -320,21 +479,49 @@ function setupJobEventListeners(state) {
 
       const category = filterToCategoryMap[filterId] || "all";
 
-      state.currentFilter = category;
-      renderJobs(state);
+      // Check if this filter is already active
+      const isActive = filterItem.classList.contains("active");
 
-      // Scroll to job listings
-      document.getElementById("jobs")?.scrollIntoView({ behavior: "smooth" });
+      if (isActive) {
+        // If clicking the active filter, deselect it and show all jobs
+        state.currentFilter = "all";
+        state.currentSubcategory = null;
+        renderSubcategories(state);
+        renderJobs(state);
 
-      // Update active filter visual
-      document
-        .querySelectorAll(".filter-item")
-        .forEach((item) => item.classList.remove("active"));
-      filterItem.classList.add("active");
+        // Update active filter visual
+        document
+          .querySelectorAll(".filter-item")
+          .forEach((item) => item.classList.remove("active"));
 
-      window.showToast?.(
-        `Visar ${filterItem.querySelector(".filter-name").textContent} uppdrag`,
-      );
+        // Reset subcategory active states
+        document
+          .querySelectorAll(".subcategory-item")
+          .forEach((item) => item.classList.remove("active"));
+
+        window.showToast?.("Visar alla uppdrag");
+      } else {
+        // Select the new filter
+        state.currentFilter = category;
+        state.currentSubcategory = null; // Reset subcategory when main filter is clicked
+        renderSubcategories(state); // Update subcategories
+        renderJobs(state);
+
+        // Update active filter visual
+        document
+          .querySelectorAll(".filter-item")
+          .forEach((item) => item.classList.remove("active"));
+        filterItem.classList.add("active");
+
+        // Reset subcategory active states
+        document
+          .querySelectorAll(".subcategory-item")
+          .forEach((item) => item.classList.remove("active"));
+
+        window.showToast?.(
+          `Visar ${filterItem.querySelector(".filter-name").textContent} uppdrag`,
+        );
+      }
     }
   });
 
