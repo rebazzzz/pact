@@ -76,8 +76,8 @@
 /* Job grid */
 .job-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: var(--spacing-xl);
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-lg);
   margin-bottom: var(--spacing-3xl);
 }
 
@@ -111,7 +111,7 @@
 }
 
 .job-image {
-  height: 140px;
+  height: 180px;
   background-color: var(--color-bg-light);
   display: flex;
   align-items: center;

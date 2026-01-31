@@ -95,6 +95,36 @@ const sampleJobs = [
     date: "2 dagar sedan",
     icon: "fas fa-box-open",
   },
+  {
+    id: 7,
+    title: "Barnpassning för två barn",
+    description:
+      "Behöver barnvakt för två barn (5 och 8 år) på fredag kväll. Lek, matlagning och sängdags.",
+    price: "400 kr",
+    location: "Stockholm, Gamla stan",
+    time: "4 timmar",
+    category: "trending",
+    skills: ["Barnpassning", "Lek"],
+    matchScore: 85,
+    author: "Maria",
+    date: "Idag",
+    icon: "fas fa-child",
+  },
+  {
+    id: 8,
+    title: "Bilvård och tvätt",
+    description:
+      "Behöver hjälp att tvätta och vaxa bilen både utvändigt och invändigt. Har alla material.",
+    price: "550 kr",
+    location: "Stockholm, Solna",
+    time: "2-3 timmar",
+    category: "trending",
+    skills: ["Bilvård", "Rengöring"],
+    matchScore: 72,
+    author: "Erik",
+    date: "Igår",
+    icon: "fas fa-car",
+  },
 ];
 
 // Sample categories
