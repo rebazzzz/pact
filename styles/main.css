@@ -5,8 +5,7 @@
 @import "layout/reset.css";
 
 /* Variables & Theming */
-@import "themes/light.css";
-@import "themes/dark.css";
+/* Light theme variables are defined in reset.css */
 
 /* Layout */
 @import "layout/grid.css";

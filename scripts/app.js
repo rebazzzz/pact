@@ -3,7 +3,6 @@
  * Initializes all modules and handles global state
  */
 
-import { initTheme } from "./ui/theme.js";
 import { initNavbar } from "./ui/navbar.js";
 import { initFooter } from "./ui/footer.js";
 import { initAuth } from "./modules/auth.js";
@@ -39,7 +38,6 @@ const PACT = {
     this.loadState();
 
     // Initialize modules
-    initTheme();
     initNavbar(this.state);
     initFooter(this.state);
     initAuth(this.state.user);
