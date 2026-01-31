@@ -81,51 +81,6 @@
   width: 100%;
 }
 
-/* User switch */
-.user-switch {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-sm);
-  background-color: var(--color-bg-light);
-  padding: var(--spacing-sm);
-  border-radius: var(--radius-md);
-  border: 1px solid var(--color-border);
-}
-
-.switch-label {
-  font-size: var(--font-size-sm);
-  color: var(--color-text-light);
-  white-space: nowrap;
-}
-
-.switch-buttons {
-  display: flex;
-  gap: var(--spacing-xs);
-}
-
-.switch-btn {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-xs);
-  padding: var(--spacing-xs) var(--spacing-sm);
-  border: 1px solid var(--color-border);
-  background-color: var(--color-bg);
-  border-radius: var(--radius-sm);
-  font-size: var(--font-size-sm);
-  cursor: pointer;
-  color: var(--color-text-light);
-  transition: all var(--transition-fast);
-}
-
-.switch-btn.active {
-  background-color: var(--color-primary);
-  color: var(--color-white);
-  border-color: var(--color-primary);
-}
-
-.switch-btn:not(.active):hover {
-  background-color: var(--color-bg-light);
-}
 
 /* User menu */
 .nav-actions {
