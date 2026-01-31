@@ -1,10 +1,9 @@
-/* ===== LIGHT THEME (TaskRabbit-inspired) ===== */
+/* ===== LIGHT THEME (PACT-inspired) ===== */
 body.light-mode {
-    --color-primary: #0073e6;
-    --color-primary-light: #4da6ff;
-    --color-primary-dark: #0056b3;
+    --color-primary: #2E8B57;
+    --color-primary-light: #3CB371;
+    --color-primary-dark: #228B22;
     --color-secondary: #6c757d;
-    --color-accent: #ff6b35;
     --color-text: #333333;
     --color-text-light: #666666;
     --color-text-lighter: #888888;

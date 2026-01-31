@@ -1,5 +1,59 @@
 /* ===== NEW SECTIONS ===== */
 
+/* Service Filters */
+.service-filters {
+  padding: var(--spacing-lg) 0;
+  background-color: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.filters-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-md);
+  padding: 0 var(--spacing-lg);
+}
+
+.filter-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.filter-item:hover {
+  border-color: var(--color-primary);
+  background-color: rgba(46, 139, 87, 0.05);
+  transform: translateY(-1px);
+}
+
+.filter-item.active {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.filter-icon {
+  font-size: var(--font-size-base);
+  color: inherit;
+}
+
+.filter-name {
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: inherit;
+}
+
 /* AI Input Teaser */
 .ai-input {
   padding: var(--spacing-3xl) 0;
@@ -177,6 +231,73 @@
   color: var(--color-white);
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
+}
+
+/* ===== POPULAR PROJECTS ===== */
+.popular-projects {
+  padding: var(--spacing-4xl) 0;
+  background-color: var(--color-bg);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-3xl);
+}
+
+.project-card {
+  background-color: var(--color-bg);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  transition: all var(--transition-normal);
+  cursor: pointer;
+  position: relative;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-primary);
+}
+
+.project-image {
+  height: 160px;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary-light),
+    var(--color-primary)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+  font-size: 3rem;
+}
+
+.project-content {
+  padding: var(--spacing-lg);
+}
+
+.project-title {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-text);
+}
+
+.project-price {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.project-description {
+  color: var(--color-text-light);
+  font-size: var(--font-size-sm);
+  line-height: 1.5;
 }
 
 /* Responsive adjustments */

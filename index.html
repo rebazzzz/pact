@@ -51,7 +51,8 @@
 
                     <div class="hero-search">
                         <div class="search-container">
-                            <input type="text" placeholder="Vad behöver du hjälp med?" class="search-input" id="heroSearch">
+                            <input type="text" placeholder="Vad behöver du hjälp med?" class="search-input"
+                                id="heroSearch">
                             <button class="search-button" id="searchBtn">
                                 <i class="fas fa-search"></i> Sök
                             </button>
@@ -64,6 +65,15 @@
             </div>
         </section>
 
+
+        <!-- Service Filters -->
+        <section class="service-filters">
+            <div class="container">
+                <div class="filters-list" id="filtersList">
+                    <!-- Filters loaded by JavaScript -->
+                </div>
+            </div>
+        </section>
 
         <!-- Job Listings -->
         <section class="job-listings" id="jobs">
@@ -81,10 +91,14 @@
                     <div class="listings-filters">
                         <select class="filter-select" id="categoryFilter">
                             <option value="all">Alla kategorier</option>
-                            <option value="assembly">Montering</option>
-                            <option value="moving">Flytt & Transport</option>
-                            <option value="tech">Teknikhjälp</option>
-                            <option value="cleaning">Städning</option>
+                            <option value="assembly">Assembly</option>
+                            <option value="mounting">Mounting</option>
+                            <option value="moving">Moving</option>
+                            <option value="cleaning">Cleaning</option>
+                            <option value="outdoor">Outdoor Help</option>
+                            <option value="repairs">Home Repairs</option>
+                            <option value="painting">Painting</option>
+                            <option value="trending">Trending</option>
                         </select>
 
                         <div class="matching-toggle">
