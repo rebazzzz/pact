@@ -16,12 +16,13 @@
 }
 
 .hero-title {
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  line-height: 1.1;
+  font-size: clamp(2rem, 3vw, 3rem);
+  line-height: 1.2;
   font-weight: 700;
   color: var(--color-text);
   letter-spacing: -0.02em;
-  max-width: 600px;
+  max-width: 500px;
+  text-align: center;
 }
 
 .hero-subtitle {
@@ -83,7 +84,8 @@
 .search-hint {
   margin-top: 16px;
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--color-text-light);
+  text-align: center;
 }
 
 /* ===== RESPONSIVE ===== */
